@@ -42,8 +42,6 @@ map.C = `((()=>{})[${fromString('constructor')}](${fromString('return escape')})
 
 const compile = code => `(()=>{})[${fromString('constructor')}](${fromString(code)})()`;
 
-
-
 function transpile(){
   let js = document.getElementById("jsCode").value
   let fuck = document.getElementById("jsFuck")
@@ -54,29 +52,52 @@ function transpile(){
 
 function callFuck(){
   let fuck = document.getElementById("jsFuck").value
+  if(fuck==='')
+    alert('Error : Nothing to compute')
   eval(fuck)
 }
 
 function load(){
-  document.getElementById("jsCode").value = `function isPrime(num) {
-    for ( var i = 2; i < num; i++ ) {
-        if ( num % i === 0 ) {
-            return false;
-        }
-    }
-    return true;
+document.getElementById("jsCode").value = `
+//Check whether the input number is prime
+function isPrime(num) {
+  for ( var i = 2; i < num; i++ ) {
+      if ( num % i === 0 ) {
+          return false;
+      }
+  }
+  return true;
 }
 
+// Display all primes in the range of 0 to n
 function display(n) {
     let list = []
     var arr = [2];
-    for ( var i = 3; i < n; i+=2 ) {
+    for ( var i = 3; i <= n; i+=2 ) {
         if ( isPrime(i) ) {
             arr.push(i);
+            console.log(i)
         }
     }
-    alert(arr); // use arr result on your own
+    
 }
 
 display(100);`
 }
+
+
+/*Overriding the console log function to grab the text from it*/
+
+//anytime later
+var cl = console.log;
+console.log = function() {
+  cl.apply(this, arguments);
+  document.getElementById("console").innerHTML+=[arguments[0],'<br/>'].join('')
+};
+
+
+var cc = console.clear;
+console.clear = function() {
+  cc.apply(this, arguments);
+  document.getElementById("console").innerHTML=""
+};

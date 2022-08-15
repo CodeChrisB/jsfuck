@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="jsfuck.js"></script>
-
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JsFuck</title>
 </head>
@@ -20,15 +18,17 @@
         </h5>
     </div>
     <div>
-        <textarea id="jsCode" rows="40" placeholder="Put valid js code here">alert('Hello World!')</textarea>    
-        <textarea id="jsFuck" rows="40" wrap="hard"></textarea>    
+        <textarea id="jsCode" rows="30" placeholder="Put valid js code here">alert('Hello World!')</textarea>    
+        <textarea id="jsFuck" rows="30" wrap="hard"></textarea>    
     </div>
     <div>
         <button onclick="transpile()" id="transpile">Transpile to JSFuck</button>
         <button onclick="callFuck()" id="compute">Compute JsFuck</button>
+        <button onclick="console.clear()" id="clear">Clear Console</button>
     </div>
     <div>
-        <h4>If you dont believe this actually works paste the code from the right textarea into your inspector's console.</h6>
+        <h4>Console :</h6>
+        <h4 id="console"></h6>
     </div>
 
     
@@ -57,13 +57,13 @@ body {
     overflow-x: hidden;
 }
 
-#transpile,#compute{
-    margin-bottom: 20px;
+#transpile,#compute,#clear{
     background-color: #DEC20B;
     border: 2px solid #b39d0b;
     color:#000;
     padding: 15px;
 }
+
 
 h2{
     color:white;
@@ -76,6 +76,14 @@ h5{
     max-width: fit-content;
     display: inline;
     color:white;
+}
+
+#console{
+    width: 45%;
+    min-height: 33vh;
+    max-height: 33vh;
+    overflow-y: auto;
+    background-color: grey;
 }
 
 </style>
