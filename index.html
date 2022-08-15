@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="jsfuck.js"></script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="load()">
+    <div>
+        <h2>
+            jsFuck transpiler
+        </h2>
+
+        <h5>
+           by CodeChrisB
+        </h5>
+    </div>
+    <div>
+        <textarea id="jsCode" rows="40" placeholder="Put valid js code here">alert('Hello World!')</textarea>    
+        <textarea id="jsFuck" rows="40" wrap="hard"></textarea>    
+    </div>
+    <div>
+        <button onclick="transpile()" id="transpile">Transpile to JSFuck</button>
+        <button onclick="callFuck()" id="compute">Compute JsFuckCode</button>
+    </div>
+    <div>
+        <h4>If you dont believe this actually works paste the code from the right textarea into your inspector's console.</h6>
+    </div>
+
+    
+    
+</body>
+</html>
+
+
+<style>
+*{
+    color:white
+}
+body {
+      padding: 10px;
+      background: #000;
+      color: #444;
+      font: normal normal normal 100%/1.4 georgia, serif;
+    }
+#jsCode,#jsFuck{
+    margin: 5px;
+    width:40%;
+    min-height: 40%;
+    color:#000
+}
+#jsFuck{
+    overflow-x: hidden;
+}
+
+#transpile,#compute{
+    margin-bottom: 20px;
+    background-color: #DEC20B;
+    border: 2px solid #b39d0b;
+    color:#000;
+    padding: 15px;
+}
+
+h2{
+    color:white;
+    font-size: 400%;
+    margin-bottom: 0px;
+    max-width: fit-content;
+    display: inline;
+}
+h5{
+    max-width: fit-content;
+    display: inline;
+    color:white;
+}
+
+</style>
