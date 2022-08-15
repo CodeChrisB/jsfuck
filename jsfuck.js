@@ -45,9 +45,8 @@ const compile = code => `(()=>{})[${fromString('constructor')}](${fromString(cod
 function transpile(){
   let js = document.getElementById("jsCode").value
   let fuck = document.getElementById("jsFuck")
-
   fuck.innerHTML = compile(js)
-
+  console.log("Code was Transpiled")
 }
 
 function callFuck(){
@@ -82,7 +81,7 @@ function display(n) {
     
 }
 
-display(100);`
+display(50);`
 }
 
 
@@ -94,7 +93,6 @@ console.log = function() {
   cl.apply(this, arguments);
   document.getElementById("console").innerHTML+=[arguments[0],'<br/>'].join('')
 };
-
 
 var cc = console.clear;
 console.clear = function() {
